@@ -1,0 +1,29 @@
+div.back(layout="row" layout-align="start center" ng-click="go('/')")
+    i.mdi.mdi--chevron-left
+    | Home
+
+form(name="form" ng-submit="form.$valid && addPizza()" novalidate)
+
+    lx-text-field(label="Pizza Name" disabled="true" error="form.name.$error.required && submitted")
+        input(type="text" name="name" ng-model="pizza.name" required)
+
+    ul.form-error(ng-if="form.name.$error.required  && submitted")
+        li Name is required
+    ul.empty(ng-if="!form.name.$error.required  || !submitted")
+        li
+
+    md-content.ingredients-available
+        div.radio-group
+            div.radio-button(ng-repeat="ingredient in ingredients")
+                input.radio-button__input(type="radio" id="radio{{$index}}" name="ingredient" value="{{$index}}" ng-model="selected.ing")
+                label.radio-button__label(for="radio{{$index}}") {{ ingredient.name }}
+
+    div(layout="row" layout-align="center")
+        button.btn.btn--l.btn--white.btn--raised(lx-ripple type="button" ng-click="addIngredient()") Add
+
+    md-content.ingredients-selected(flex)
+        ul
+            li(ng-repeat="ingredient in ingredientList") {{ ingredient.count }} {{ ingredient.name }}
+
+    div(layout="row" layout-align="center")
+        button.btn.btn--l.btn--white.btn--raised(lx-ripple type="submit" ng-click="submitted = true") Save
