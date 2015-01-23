@@ -20,7 +20,7 @@ form(name="form" ng-submit="form.$valid && addPizza()" novalidate)
                 label.radio-button__label(for="radio{{$index}}") {{ ingredient.name }}
 
     div(layout="row" layout-align="center")
-        button.btn.btn--l.btn--white.btn--raised(lx-ripple type="button" ng-click="addIngredient(selected)") Add
+        button.btn.btn--l.btn--white.btn--raised(lx-ripple type="button" ng-click="addIngredient(selected.ing)") Add
 
     md-content.ingredients-selected(flex)
         ul
