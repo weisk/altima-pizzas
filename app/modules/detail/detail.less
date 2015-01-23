@@ -6,6 +6,19 @@
     }
 }
 
+.padded {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.text-field__label {
+    color: #666 !important;
+}
+
+.text-field:before {
+    border-bottom-color: #666;
+}
+
 .radio-group {
     padding: 20px 10px;
 }
@@ -19,6 +32,14 @@ ul.empty {
     height: 25vh;
     margin: 20px 0;
     padding: 0 10px;
-    border: 1px solid black;
+    border: 1px solid #666;
     border-radius: 2px;
+
+    ul {
+        margin: 20px 10px;
+    }
+
+    i {
+        cursor: pointer;
+    }
 }
