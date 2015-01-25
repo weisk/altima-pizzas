@@ -1,7 +1,10 @@
 div(layout="column" layout-align="start center")
     h2 Pizzas App
     ul.pizzas
-        li(ng-repeat="pizza in pizzas" ng-click="go('/new/' + pizza._id)") {{ pizza.name }}
+        li(ng-repeat="pizza in pizzas" ng-click="go('/new/' + pizza._id)" layout="row" layout-align="start center")
+            span(flex) {{ pizza.name }}
+            i.mdi.mdi.mdi--delete(ng-click="delete($event, pizza)")
+
     button.btn.btn--l.btn--white.btn--raised(lx-ripple ng-click="go('/new')")
         i.mdi.mdi--add
         |  New Pizza

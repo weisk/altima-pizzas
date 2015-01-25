@@ -10,6 +10,15 @@ angular.module 'alt.list',
                 pizzas: (Pizza) ->
                     Pizza.query()
 
-.controller 'ListCtrl', ($scope, pizzas) ->
+.controller 'ListCtrl', ($scope, $route, pizzas, LxNotificationService) ->
     $scope.pizzas = pizzas
+
+    $scope.delete = ($evt, pizza) ->
+        $evt.stopPropagation?()
+        pizza.$delete()
+        .then (d) ->
+            LxNotificationService.success 'Pizza deleted successfully'
+            $route.reload()
+        .catch (e) ->
+            LxNotificationService.error 'Could not deletepizza'
 

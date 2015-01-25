@@ -10,7 +10,10 @@ angular.module 'alt.resources',
         .edit -> save pizza
         .$delete -> delete pizza
     ###
-    $resource config.baseUrlApi + '/pizzas/:id'
+    $resource config.baseUrlApi + '/pizzas/:id', { id: '@_id' },
+        update:
+            method: 'PUT'
+            responseType: 'json'
 
 .factory 'Ingredient', ($resource,config) ->
     ###

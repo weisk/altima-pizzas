@@ -2,7 +2,7 @@ div.back(layout="row" layout-align="start center" ng-click="go('/')")
     i.mdi.mdi--chevron-left
     | Home
 
-form(name="form" ng-submit="form.$valid && addPizza()" novalidate)
+form(name="form" ng-submit="form.$valid && save()" novalidate)
 
     div.padded
         lx-text-field(label="Pizza Name" disabled="true" error="form.name.$error.required && submitted")
@@ -16,7 +16,7 @@ form(name="form" ng-submit="form.$valid && addPizza()" novalidate)
     md-content.ingredients-available
         div.radio-group
             div.radio-button(ng-repeat="ingredient in ingredients")
-                input.radio-button__input(type="radio" id="radio{{$index}}" name="ingredient" value="{{$index}}" ng-model="selected.ing")
+                input.radio-button__input(type="radio" id="radio{{$index}}" name="ingredient" value="{{ingredient._id}}" ng-model="selected.ing")
                 label.radio-button__label(for="radio{{$index}}") {{ ingredient.name }}
 
     div(layout="row" layout-align="center")
@@ -26,7 +26,7 @@ form(name="form" ng-submit="form.$valid && addPizza()" novalidate)
         ul
             li(ng-repeat="ingredient in ingredientList" layout="row")
                 span(flex) {{ ingredient.count }}&emsp;{{ ingredient.name }}
-                i.mdi.mdi--delete(ng-click="decrease(ingredient)")
+                i.mdi.mdi--remove(ng-click="decrease(ingredient)")
 
     div(layout="row" layout-align="center")
         button.btn.btn--l.btn--white.btn--raised(lx-ripple type="submit" ng-click="submitted = true") Save
