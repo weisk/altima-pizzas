@@ -1,0 +1,63 @@
+main {
+  padding: 20px;
+}
+ul li {
+  list-style: none;
+}
+
+.back {
+  cursor: pointer;
+}
+.back i {
+  margin-right: 10px;
+}
+.padded {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.text-field__label {
+  color: #666 !important;
+}
+.text-field:before {
+  border-bottom-color: #666;
+}
+.radio-group {
+  padding: 20px 10px;
+}
+ul.empty {
+  margin: 0;
+  height: 18px;
+}
+[class^=ingredients] {
+  height: 25vh;
+  margin: 20px 0;
+  padding: 0 10px;
+  border: 1px solid #666;
+  border-radius: 2px;
+}
+[class^=ingredients] ul {
+  margin: 20px 10px;
+}
+[class^=ingredients] i {
+  cursor: pointer;
+}
+
+ul.pizzas {
+  margin: 40px 0;
+  padding: 10px;
+  min-width: 250px;
+  min-height: 250px;
+  border: 1px solid #333;
+  border-radius: 2px;
+}
+ul.pizzas li {
+  list-style: none;
+  padding: 10px;
+  cursor: pointer;
+}
+ul.pizzas li i {
+  cursor: pointer;
+}
+ul.pizzas li:hover {
+  background-color: #DDDDDF;
+}
